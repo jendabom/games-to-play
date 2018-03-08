@@ -3,7 +3,7 @@ class GamesController < ApplicationController
     first_choice = params["first_choice"]
     if first_choice != nil
       if first_choice.downcase == "left"
-        current_situation = "You chose left, you walk towards the open door, just then a dragon swoops down and breaths fire on you. You die."
+        current_situation = "You chose left, you walk towards the open door, just then a dragon swoops down and breathes fire on you. You die."
       elsif first_choice.downcase == "right"
         current_situation = "You approach the troll on the right tentatively. He greets you cheerily. 'I have been waiting for a hero to come rescue the prisoner. Here is a map to the interior of the castle! Your new friend the troll lets you through the gate. He pauses for a moment, and is uncertain of which way to go. You have the map, he looks to you to make a decision. On the map you see to the right a garden, to the left the armory. Choose left or right in the address bar after a '/''"
       else
