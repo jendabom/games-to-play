@@ -51,7 +51,7 @@ class GamesController < ApplicationController
       if third_choice.downcase == "left"
         current_situation = "You chose left, you run towards the dragon, you slay the dragon and you save the prisoner. You win."
       elsif third_choice.downcase == "right"
-        current_situation = "You chose to go towards the prisoner, the dragon swoops towards you. In the last moment you turn to cut the dragons head off with one mighty blow. You slay the dragon and save the prisoner. You win."
+        current_situation = "You chose to go towards the prisoner, the dragon swoops towards you. In the last moment you turn to see the troll cut the dragons head off with one mighty blow. The dragon is saved and the troll saved the day. The person the troll was really waiting for was someone to stand by his side while the hero that was within him soared."
       else
         if third_choice == "slay"
           current_situation = "You do slay, and you save the prisoner. You win! Nothing left to do here. YAAAAAS!"
