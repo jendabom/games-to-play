@@ -18,4 +18,28 @@ class GamesController < ApplicationController
       render json: {message: "You are strong and heroic, you stand fearless outside a castle. You have come to save the prisoner and fight the dragon. To the left you see an open door, to the right a troll stands outside a gate in. Choose left or right in the address bar after a '/'"}
     end
   end
+  def the_second_choice
+    first_choice = params["first_choice"]
+    second_choice = params["second_choice"]
+    if first_choice == "right" && second_choice != nil
+      if second_choice.downcase == "left"
+        current_situation = "You chose left, you walk towards the armory. The way is dark, but you get to the armory unscathed. Time to load up on weapons."
+      elsif second_choice.downcase == "right"
+        current_situation = "You chose to go towards the garden on the right, the troll does not wish to accompany you. He is allergic to flowers. While walking through the garden you get very sleepy. You lie down and fall into a deep slumber."
+      else
+        if second_choice == "slay"
+          current_situation = "You do slay, and you save the prisoner. You win! Nothing left to do here. YAAAAAS!"
+        else
+          current_situation = "Left or Right are your only choices, choose left or right above!"
+        end
+      end
+      render json: {message: current_situation}
+    else
+      if first_choice == "left"
+        render json: {message: "Sorry you are dead. Ghosts can't make additional choices."}
+      else
+        render json: {message: "Your new friend the troll lets you through the gate. He pauses for a moment, and is uncertain of which way to go. You have the map, he looks to you to make a decision. On the map you see to the right a garden, to the left the armory. Choose left or right in the address bar after a '/'"}
+      end
+    end
+  end
 end
