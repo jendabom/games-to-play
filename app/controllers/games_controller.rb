@@ -25,7 +25,7 @@ class GamesController < ApplicationController
       if second_choice.downcase == "left"
         current_situation = "You chose left, you walk towards the armory. The way is dark, but you get to the armory unscathed. Time to load up on weapons. As you come out of the armory you see the prisoner to the right and the dragon to the left. Choose left or right in the address bar after a '/'"
       elsif second_choice.downcase == "right"
-        current_situation = "You chose to go towards the garden on the right, the troll does not wish to accompany you. He is allergic to flowers. While walking through the garden you get very sleepy. You lie down and fall into a deep slumber."
+        current_situation = "You chose to go towards the garden on the right, the troll does not wish to accompany you. He is allergic to flowers. While walking through the garden you get very sleepy. You lie down and fall into a deep slumber. The prisoner will not be saved today."
       else
         if second_choice == "slay"
           current_situation = "You do slay, and you save the prisoner. You win! Nothing left to do here. YAAAAAS!"
@@ -61,7 +61,7 @@ class GamesController < ApplicationController
       end
       render json: {message: current_situation}
     else
-      if first_choice == "left"
+      if first_choice == "left" 
         render json: {message: "Sorry you are dead. Ghosts can't make additional choices."}
       elsif second_choice == "right"
         render json: {message: "Sorry you are getting your beauty sleep. Sleeping Beauty can't make additional choices."}
